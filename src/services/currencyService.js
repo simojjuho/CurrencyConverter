@@ -1,13 +1,14 @@
 import axios from 'axios'
-const { REACT_APP_CURRENCY_API_KEY } = process.env
+import { logger } from './logger'
+const baseUrl = 'http://localhost:3001'
 
 const getCurrencyRates = async () => {
-    const response = await axios.get(`https://api.currencyfreaks.com/latest?apikey=${REACT_APP_CURRENCY_API_KEY}`)
+    const response = await axios.get(`${baseUrl}/currencyRates`)
     return response.data
 }
 
 const getCurrencies = async () => {
-    const response = await axios.get('https://api.currencyfreaks.com/supported-currencies')
+    const response = await axios.get(`${baseUrl}/currencies`)
     return response.data
 }
 
