@@ -31,27 +31,9 @@ const CurrencyTable = ({ filteredCurrencies, currencyRates }) => {
                         <td>Amount</td>
                         <td>Currency full name</td>
                     </tr>
-                    <tr>
-                        <td>USD</td>
-                        <td>1</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>EUR</td>
-                        <td>{ showRate() }</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>ZAR</td>
-                        <td> {currencyRates.ZAR} </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>GBP</td>
-                        <td>{currencyRates.GBP}</td>
-                        <td></td>
-                    </tr>
-                    <CurrencyRow currencyInfo={filteredCurrencies[0]} />
+                    { filteredCurrencies.map(currency => {
+                        return <CurrencyRow key={currency.currencyCode} currencyInfo={currency} currencyRate={ currencyRates[currency.currencyCode] } />
+                    }) }
                 </tbody>
             </table>
             )

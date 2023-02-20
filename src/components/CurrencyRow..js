@@ -6,12 +6,10 @@ const CurrencyRow = ({ currencyInfo, currencyRate, isInverted }) => {
             : `${1 / rate}`
     }
 
-    console.log(currencyInfo)
-
     return (
         <tr>
             <td>{currencyInfo.currencyCode}</td>
-            <td>1</td>
+            <td>{ currencyRate }</td>
             <td>{currencyInfo.currencyName}</td>
         </tr>
     )
