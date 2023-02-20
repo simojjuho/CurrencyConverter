@@ -1,12 +1,15 @@
-const ConversionForm = () => {
+import SelectCurrenciesMenu from "./DropdownMenu"
+
+const ConversionForm = ({ currencies }) => {
+
+    const handleConversion = (event) => {
+        event.preventDefault()
+    }
 
     return(
         <div>
-            <form>
-                <select>
-                    <option>EUR</option>
-                    <option>ZAR</option>
-                </select>
+            <form onSubmit={handleConversion()}>
+                <SelectCurrenciesMenu currencies={ currencies }/>
             </form>
         </div>
     )

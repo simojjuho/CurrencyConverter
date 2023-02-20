@@ -52,7 +52,7 @@ const App = () => {
     </article>
     <article>
       <h2>Convert</h2>
-      <ConversionForm />
+      <ConversionForm currencies={ currencies } />
     </article>
     </div>
   )
