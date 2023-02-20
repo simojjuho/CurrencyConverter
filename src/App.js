@@ -44,7 +44,7 @@ const App = () => {
   return (
     <div>
     <div>
-      <h1>Currency rates app v0.1</h1>
+      <h1>Currency rates app</h1>
     </div>
     <article>
       <h2>The most common currencies</h2>

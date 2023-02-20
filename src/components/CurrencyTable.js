@@ -9,12 +9,6 @@ const CurrencyTable = ({ filteredCurrencies, currencyRates }) => {
     const handleInvert = () => {
         setInverted(!isInverted)
     }
-
-    const showRate = (currency) => {
-        return !isInverted
-            ? currencyRates.EUR
-            : `${1 / currencyRates.EUR}`
-    }
         
     if (!currencyRates) {
         return (
@@ -26,14 +20,19 @@ const CurrencyTable = ({ filteredCurrencies, currencyRates }) => {
         return(
             <table>
                 <tbody>
-                    <tr>
-                        <td><button onClick={() => handleInvert() }>Invert</button></td>
-                        <td>Amount</td>
-                        <td>Currency full name</td>
-                    </tr>
-                    { filteredCurrencies.map(currency => {
-                        return <CurrencyRow key={currency.currencyCode} currencyInfo={currency} currencyRate={ currencyRates[currency.currencyCode] } />
-                    }) }
+                        <tr>
+                            <td><button onClick={() => handleInvert() }>Invert</button></td>
+                            <td>Amount</td>
+                            <td>Currency full name</td>
+                        </tr>
+                        { filteredCurrencies.map(currency => {
+                            return <CurrencyRow 
+                                        key={currency.currencyCode} 
+                                        currencyInfo={currency} 
+                                        currencyRate={ currencyRates[currency.currencyCode] } 
+                                        isInverted={isInverted} 
+                                    />
+                        }) }
                 </tbody>
             </table>
             )
